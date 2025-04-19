@@ -148,6 +148,7 @@ public class App extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if(connectBTButton.getText().equals("Connect")) {
+                    refreshBTButton.setDisable(true);
                     fileName = "data_" + simpleDateFormat.format(new Date()) + ".csv";
                     try {
                         csvWriter = new CSVWriter(new FileWriter(fileName));
@@ -170,6 +171,7 @@ public class App extends Application {
                     connectBTButton.setText("Disconnect");
                     // System.out.println("Connect Bluetooth Button Clicked");
                 } else {
+                    refreshBTButton.setDisable(false);
                     reading = false;
                     sg1.getData().clear();
                     sg2.getData().clear();
